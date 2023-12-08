@@ -1,0 +1,15 @@
+@import 'reset.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+* {
+  font-family: 'Space Mono', monospace;
+}
+
+.container {
+  padding: 0 40px;
+  max-width: 1440px;
+}
+section {
+  padding-top: 110px;
+}

@@ -1,5 +1,8 @@
 <script setup lang="ts">
-
+let name = ref('')
+onMounted(() => {
+  name.value = localStorage.getItem('name')
+})
 </script>
 
 <template>
@@ -15,10 +18,13 @@
               <nuxt-link to="/">Главная</nuxt-link>
             </li>
             <li class="header__item">
-              <nuxt-link to="/about">Добавить игру</nuxt-link>
+              <nuxt-link to="/game/add">Добавить игру</nuxt-link>
             </li>
-            <li class="header__item">
-              <nuxt-link to="/about">Войти</nuxt-link>
+            <li v-if="name" class="header__item">
+              <p>{{ name }}</p>
+            </li>
+            <li v-else class="header__item">
+              <nuxt-link to="/login">Войти</nuxt-link>
             </li>
           </ul>
         </nav>

@@ -1,5 +1,22 @@
 <script setup lang="ts">
 
+async function submit() {
+  const { data: responseData } = await useFetch('/api/user/:id/post', {
+    method: 'post',
+    body: {
+      name: 'Jony2',
+      surname: 'Beka',
+      email: 'jony@bek.kz',
+      password: 'jonyjony',
+    },
+    headers: useRequestHeaders(['authorization'])
+  })
+  console.log(responseData.value)
+}
+async function submit2() {
+  const { data: responseData } = await useFetch('/api/games/get')
+  console.log(responseData.value)
+}
 </script>
 
 <template>
@@ -28,6 +45,8 @@
     </div>
     <div class="game-gallery">
 
+          <button @click="submit">click</button>
+          <button @click="submit2">click2</button>
     </div>
   </section>
 </template>
